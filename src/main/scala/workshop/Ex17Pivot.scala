@@ -22,7 +22,7 @@ object Ex17Pivot {
       .csv("src/main/resources/workshop/pivot.csv")
     dataDF.show()
 
-    dataDF.groupBy("cc").pivot("udate").sum("udate").show()
+//    dataDF.groupBy("cc").pivot("udate").sum("udate").show()
 
     val solution = dataDF.groupBy().pivot("udate").agg(first("cc"))
     solution.show()
