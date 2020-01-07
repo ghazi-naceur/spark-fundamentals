@@ -7,7 +7,24 @@ object Ex6FlatteningArray {
   def main(args: Array[String]): Unit = {
 
     /**
-     @link http://blog.jaceklaskowski.pl/spark-workshop/exercises/spark-sql-exercise-Flattening-Array-Columns-From-Datasets-of-Arrays-to-Datasets-of-Array-Elements.html
+    https://github.com/jaceklaskowski/spark-workshop/blob/gh-pages/exercises/spark-sql-exercise-Flattening-Array-Columns-From-Datasets-of-Arrays-to-Datasets-of-Array-Elements.md
+
+     input :
+      +---------+
+      |    value|
+      +---------+
+      |[a, b, c]|
+      |[X, Y, Z]|
+      +---------+
+
+     output :
+      +---+---+---+
+      |  0|  1|  2|
+      +---+---+---+
+      |  a|  b|  c|
+      |  X|  Y|  Z|
+      +---+---+---+
+
      */
 
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
