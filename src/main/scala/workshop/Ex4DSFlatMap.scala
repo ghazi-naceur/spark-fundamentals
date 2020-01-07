@@ -8,6 +8,22 @@ object Ex4DSFlatMap {
 
     /**
      * @link https://github.com/jaceklaskowski/spark-workshop/blob/gh-pages/exercises/spark-sql-exercise-Using-Dataset-flatMap-Operator.md
+     *
+     *       input :
+     *       +---------+
+     *       |     nums|
+     *       +---------+
+     *       |[1, 2, 3]|
+     *       +---------+
+     *
+     *       output :
+     *       +---------+---+
+     *       |     nums|num|
+     *       +---------+---+
+     *       |[1, 2, 3]|  1|
+     *       |[1, 2, 3]|  2|
+     *       |[1, 2, 3]|  3|
+     *       +---------+---+
      */
 
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
