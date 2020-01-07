@@ -8,6 +8,31 @@ object Ex3FindIds {
 
     /**
      @link http://blog.jaceklaskowski.pl/spark-workshop/exercises/spark-sql-exercise-Finding-Ids-of-Rows-with-Word-in-Array-Column.html
+
+     input :
+      +---+------------------+-----+
+      | id|             words| word|
+      +---+------------------+-----+
+      |  1|     one,two,three|  one|
+      |  2|     four,one,five|  six|
+      |  3|seven,nine,one,two|eight|
+      |  4|    two,three,five| five|
+      |  5|      six,five,one|seven|
+      +---+------------------+-----+
+
+     output :
+      +-----+------------+
+      |split|ids         |
+      +-----+------------+
+      |two  |[1, 3, 4]   |
+      |seven|[3]         |
+      |four |[2]         |
+      |one  |[1, 2, 3, 5]|
+      |six  |[5]         |
+      |nine |[3]         |
+      |three|[1, 4]      |
+      |five |[2, 4, 5]   |
+      +-----+------------+
      */
 
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
