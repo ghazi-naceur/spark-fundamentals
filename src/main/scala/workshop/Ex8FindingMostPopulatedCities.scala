@@ -7,7 +7,29 @@ object Ex8FindingMostPopulatedCities {
   def main(args: Array[String]): Unit = {
 
     /**
-    @link http://blog.jaceklaskowski.pl/spark-workshop/exercises/spark-sql-exercise-Finding-Most-Populated-Cities-Per-Country.html
+    https://github.com/jaceklaskowski/spark-workshop/blob/gh-pages/exercises/spark-sql-exercise-Finding-Most-Populated-Cities-Per-Country.md
+
+     input :
+      +-----------------+-------------+----------+
+      |             name|      country|population|
+      +-----------------+-------------+----------+
+      |           Warsaw|       Poland| 1 764 615|
+      |           Cracow|       Poland|   769 498|
+      |            Paris|       France| 2 206 488|
+      |Villeneuve-Loubet|       France|    15 020|
+      |    Pittsburgh PA|United States|   302 407|
+      |       Chicago IL|United States| 2 716 000|
+      |     Milwaukee WI|United States|   595 351|
+      +-----------------+-------------+----------+
+
+     output :
+      +----------+-------------+----------+
+      |      name|      country|population|
+      +----------+-------------+----------+
+      |    Warsaw|       Poland| 1 764 615|
+      |     Paris|       France| 2 206 488|
+      |Chicago IL|United States| 2 716 000|
+      +----------+-------------+----------+
      */
 
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
