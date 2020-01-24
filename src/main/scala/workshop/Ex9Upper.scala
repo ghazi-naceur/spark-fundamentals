@@ -7,7 +7,7 @@ object Ex9Upper {
   def main(args: Array[String]): Unit = {
 
     /**
-    @link http://blog.jaceklaskowski.pl/spark-workshop/exercises/spark-sql-exercise-Using-upper-Standard-Function.html
+    https://github.com/jaceklaskowski/spark-workshop/blob/gh-pages/exercises/spark-sql-exercise-Using-upper-Standard-Function.md
      */
 
     val spark = SparkSession.builder().master("local[*]").getOrCreate()
