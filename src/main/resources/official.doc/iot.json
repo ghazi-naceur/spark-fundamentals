@@ -1,0 +1,7 @@
+{ "device": "T10", "deviceType": "temperature sensor", "signal": 30.0, "time": "2016-01-11 00:01:02" }
+{ "device": "T11", "deviceType": "temperature sensor", "signal": 32.1, "time": "2016-01-11 00:01:02" }
+{ "device": "T10", "deviceType": "temperature sensor", "signal": 29.3, "time": "2016-01-11 00:01:02" }
+{ "device": "P10", "deviceType": "position sensor", "signal": 3.1, "time": "2016-01-11 00:01:02" }
+{ "device": "P11", "deviceType": "position sensor", "signal": 5.2, "time": "2016-01-11 00:01:02" }
+{ "device": "L11", "deviceType": "light sensor", "signal": 50, "time": "2016-01-11 00:01:02" }
+{ "device": "L10", "deviceType": "light sensor", "signal": 52, "time": "2016-01-11 00:01:02" }

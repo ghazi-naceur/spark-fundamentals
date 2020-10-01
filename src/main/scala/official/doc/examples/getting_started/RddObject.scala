@@ -3,7 +3,7 @@ package official.doc.examples.getting_started
 import org.apache.spark.rdd.RDD
 import org.apache.spark.{SparkConf, SparkContext}
 
-object RDD {
+object RddObject {
 
   def main(args: Array[String]): Unit = {
 
@@ -15,7 +15,7 @@ object RDD {
     val distData = sc.parallelize(data)
 
     // External dataset
-    val lines: RDD[String] = sc.textFile("src\\main\\resources\\file.xml")
+    val lines: RDD[String] = sc.textFile("src/main/resources/file.xml")
 
     val lineLengths: RDD[Int] = lines.map(line => line.length)
     lineLengths.persist()

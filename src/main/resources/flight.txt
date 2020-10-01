@@ -1,0 +1,7 @@
+FlightNum, Origin, Dest, Distance
+1, a, z, 40
+2, b, y, 66
+3, e, z, 50
+4, c, y, 44
+5, a, x, 90
+6, b, e, 10
