@@ -1,0 +1,100 @@
+
+
+    I- Kafka Streams :
+
+     - Kafka Streams is a Client library for unbounded data :
+        * Client library means that the application that we will write uses services provided another infrastructure,
+          which is the Kafka Cluster, that will be charged to process many streams of data.
+        * Data in Kafka Steams is represented as key-value records, which makes them easy to identify.
+           + This Data is organized in topics, stored into disks and replicated.
+           + This structuring of data allows for highly distributed and scalable architectures, which also fault-tolerant
+           + Kafka also guarantees exactly-once semantics, which means if you sent a record to kafka, you will be sure that
+          it gets to the cluster and will be written without duplicates => Great feature, generally hard to obtain in the
+          case of distributed systems
+
+        * Strengths :
+          + Fast: High throughput and low latency
+          + Fault-tolerant
+          + Highly scalable
+          + Exactly-once semantics
+          + In favor of microservices
+          + Highly configurable
+
+        * Weaknesses :
+          - Java-Style API
+          - Needs Kafka Cluster Management
+          - Needs configuration knowledge
+          - Supports only producer-consumer type architectures
+
+    II- Akka Streams :
+      - Akka Streams is a low-level high performance library for Reactive Streams
+      - Resilient, elastic, fault-tolerant, message-driven
+      - Streaming topologies of any shape, size and scale
+      - Based on the actor model of concurrency/distribution
+      - Streams made up of individual components that can :
+          + Emit, transform or "swallow" records
+          + Broadcast, merge, zip or aggregate data
+          + Run custom logic
+
+        * Strengths :
+          + Fast: High throughput and low latency
+          + Fault-tolerant
+          + Highly scalable
+          + Versatile scalable
+          + Extremely high control with the low-level API
+          + Can easily connect to Kafka via Alpakka connectors
+          + Is an integral part of the application
+
+        * Weaknesses :
+          - Hard to learn : daunting for beginners
+          - Can easily misused
+          - Needs more careful management
+          - Is an integral part of the application
+
+        * Notable :
+          - It is incorporated into the application logic (an integral part of your app, not like Kafka (a third-party))
+          - It is highly configurable, most default configurations "just work"
+
+      III- Spark Streaming :
+          - It is a natural streaming extension of Spark :
+            * Big Data
+            * Low-level(DStreams : Discretized Streams) + High-level(DataFrame + SQL : Structured Streams) APIs
+            * Scalable and fault-tolerant
+            * Micro-batch + continuous execution
+
+          * Notable :
+            - Needs a dedicated cluster to run in production
+            - Highly configurable with massive performance benefits if done right
+
+          * Strengths :
+            + Fits for massive scale data
+            + Fault-tolerant
+            + 2 API levels for hands-off and high control
+            + Late data handling with watermarks
+            + Highly configurable with massive performance benefits (if used right)
+            + Can easily connect to Kafka for both read/write
+            + Usually excellent documentation and maintenance
+
+          * Weaknesses :
+            - Loss of type safety in the DataFrame SQL API
+            - High latency when not in continuous mode (currently experimental)
+            - Needs dedicated cluster
+
+    VI- When to use What :
+      1- Akka Streams :
+        + Best for high-performance streams that are part o the business logic
+        + Powerful, concise API
+        - Hard to write if you don't know your stuff
+
+      2- Kafka Streams :
+        + Best for high-performance streams outside your microservice's logic
+        - imperative, Java-styLe API
+
+      3- Spark Streaming :
+        + Best for unbounded Big Data computations
+        - Bad for low-latency/realtime systems
+
+        => When you need :
+           - Low-latency business logic without managing other clusters : Akka Streams
+           - Low-latency microservices which use the same message bus : Kafka Streams
+           - Streaming big data for computations and insights : Spark Streaming
