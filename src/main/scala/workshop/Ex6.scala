@@ -19,7 +19,7 @@ object Ex6 {
 
     println("Solution :")
     val frame1 = input
-      .select((0 to 2).map(fd => col("value").getItem(fd).as(s"$fd")): _*)
+      .select((0 to 2).map(index => col("value").getItem(index).as(s"$index")): _*)
 
     frame1.show(false)
   }
