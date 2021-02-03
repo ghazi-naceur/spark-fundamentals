@@ -39,5 +39,12 @@ object Ex8 {
       .select("name", "country", "population")
 
     output2.show(false)
+
+    /////////////////////////////////////////////
+    input.groupBy("country").agg(max("population"))
+      .withColumnRenamed("max(population)", "population")
+      .join(input.drop("country"), "population")
+      .select("name", "country", "population")
+      .show(false)
   }
 }
