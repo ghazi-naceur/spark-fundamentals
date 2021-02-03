@@ -39,5 +39,12 @@ object Ex3 {
         .agg(collect_set(col("id")))
 
     intermediate2.show(false)
+
+  ///////////////////////////////////
+  input.withColumn("split", split(col("words"), ","))
+    .withColumn("split", explode(col("split")))
+    .groupBy("split")
+    .agg(collect_set(col("id")).as("list"))
+    .show(false)
   }
 }
